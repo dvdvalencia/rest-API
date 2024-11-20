@@ -1,5 +1,8 @@
-import React from "react";
-function CharacterDetails({ character }) {
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getCharacterById } from "../../view/Character/chatacter"; // Importa la función
+
+function CharacterDetails() {
   const { id } = useParams(); // Obtiene el ID del personaje de la URL
   const [character, setCharacter] = useState(null);
   const [error, setError] = useState(null);
@@ -23,11 +26,11 @@ function CharacterDetails({ character }) {
   if (!character) {
     return <p>Loading character details...</p>;
   }
+
   return (
     <div className="character-details">
       <h2>{character.name}</h2>
       <p>{character.description || "No description available"}</p>
-      {/* Optionally display additional details if available */}
       {character.comics?.available > 0 && (
         <p>Appears in: {character.comics.available} comics</p>
       )}
@@ -43,4 +46,5 @@ function CharacterDetails({ character }) {
     </div>
   );
 }
+
 export default CharacterDetails;
