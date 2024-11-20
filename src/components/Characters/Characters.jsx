@@ -32,7 +32,7 @@ function Characters() {
         <div className="character-list">
           {characterData.results.map((character) => (
             <div key={character.id} className="character-card" onClick={() => handleCharacterClick(character.id)}>
-              <h2>{character.name}</h2>
+              <h2>{character.name.toUpperCase()}</h2>
               <img
                 src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
                 alt={character.name}

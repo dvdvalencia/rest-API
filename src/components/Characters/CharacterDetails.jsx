@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getCharacterById } from "../../view/Character/chatacter"; // Importa la función
 
 function CharacterDetails() {
   const { id } = useParams(); // Obtiene el ID del personaje de la URL
+  const navigate = useNavigate();
   const [character, setCharacter] = useState(null);
   const [error, setError] = useState(null);
 
@@ -29,20 +30,31 @@ function CharacterDetails() {
 
   return (
     <div className="character-details">
-      <h2>{character.name}</h2>
-      <p>{character.description || "No description available"}</p>
-      {character.comics?.available > 0 && (
-        <p>Appears in: {character.comics.available} comics</p>
-      )}
-      {character.series?.available > 0 && (
-        <p>Featured in: {character.series.available} series</p>
-      )}
-      {character.stories?.available > 0 && (
-        <p>Has {character.stories.available} stories</p>
-      )}
-      {character.events?.available > 0 && (
-        <p>Involved in: {character.events.available} events</p>
-      )}
+      <h2>{character.name.toUpperCase()}</h2>
+      <div className="character-info">
+        <img
+          src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+          alt={character.name}
+          className="description-image"
+        />
+        <div className="character-description">
+          <p>{character.description || "No description available"}</p>
+          {character.comics?.available > 0 && (
+            <p>Appears in: {character.comics.available} comics</p>
+          )}
+          {character.series?.available > 0 && (
+            <p>Featured in: {character.series.available} series</p>
+          )}
+          {character.stories?.available > 0 && (
+            <p>Has {character.stories.available} stories</p>
+          )}
+          {character.events?.available > 0 && (
+            <p>Involved in: {character.events.available} events</p>
+          )}
+        </div>
+      </div>
+      {/* Botón para regresar a la página principal */}
+      <button onClick={() => navigate("/")}>Regresar</button>
     </div>
   );
 }
