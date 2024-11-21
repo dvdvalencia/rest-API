@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getCharacterById } from "../../view/Character/chatacter"; // Importa la función
+import { getCharacterById } from "../../view/Character/getChatacter"; // Importa la función
 
 function CharacterDetails() {
   const { id } = useParams(); // Obtiene el ID del personaje de la URL
