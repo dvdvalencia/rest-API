@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Importar useNavigate
 import "../../styles/Characters.css";
+import "../../styles/SearchBar.css";
+import "../../styles/Header.css"
 import { getCharacter } from "../../view/Character/getChatacter";
 
 function Characters() {
@@ -41,7 +43,7 @@ function Characters() {
 
   return (
     <div>
-      <h1>MARVEL CHARACTERS</h1>
+      <img src="/public/marvel.png" alt="universo-marvel" className="universo-marvel" />
       <input
         type="text"
         placeholder="Search characters..."

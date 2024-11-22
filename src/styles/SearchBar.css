@@ -1,4 +1,4 @@
-.search-bar {
+.SearchBar {
     width: 100%;
     max-width: 400px;
     padding: 10px;
@@ -8,7 +8,7 @@
     border-radius: 5px;
     font-size: 16px;
   }
-  .search-bar {
+  .SearchBar {
     padding: 1rem;
     background-color: #4b5563; /* bg-gray-800 */
     display: flex;
