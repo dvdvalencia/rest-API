@@ -47,7 +47,7 @@ function Characters() {
         placeholder="Search characters..."
         value={searchQuery}
         onChange={handleSearch}
-        className="search-bar"
+        className="SearchBar"
       />
       {error && <p>Error: {error.message}</p>}
       {filteredCharacters.length > 0 ? (

@@ -12,7 +12,7 @@ const SearchBar = ({ onSearch }) => {
 
 
   return (
-    <div class="search-bar">
+    <div className="search-bar">
       <select
         value={category}
         onChange={(e) => setCategory(e.target.value)}
@@ -29,11 +29,11 @@ const SearchBar = ({ onSearch }) => {
         placeholder="Search..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        class="input-search"
+        className="input-search"
       />
       <button
         onClick={handleSearch}
-        class="button-search"
+        className="button-search"
       >
         Search
       </button>
