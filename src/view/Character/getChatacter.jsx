@@ -1,24 +1,3 @@
-// src/view/Character/chatacter.js
-
-// Función para obtener todos los personajes
-export async function getCharacter() {
-  const url = 'https://gateway.marvel.com/v1/public/characters?ts=1&apikey=571b4bf3ff40286b0e70f67be7cd6824&hash=a515bf55b4fb6fdf861f29c5a70093cf';
-
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status} ${response.statusText}`);
-    }
-    const data = await response.json();
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.error('Failed to fetch character data:', error);
-    throw error;
-  }
-}
-
-// Función para obtener todos los personajes, implementando paginación
 export async function getAllCharacters(offset = 0) {
   const baseUrl = 'https://gateway.marvel.com/v1/public/characters';
   const params = new URLSearchParams({
@@ -26,7 +5,7 @@ export async function getAllCharacters(offset = 0) {
     apikey: '571b4bf3ff40286b0e70f67be7cd6824',
     hash: 'a515bf55b4fb6fdf861f29c5a70093cf',
     offset,
-    limit: 99
+    limit: 20 
   });
 
   const url = `${baseUrl}?${params.toString()}`;
