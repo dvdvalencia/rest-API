@@ -63,7 +63,7 @@ function Characters() {
   };
 
   return (
-    <div>
+    <div className="marvel">
       <img
         src="/public/marvel.png"
         alt="marvel"
